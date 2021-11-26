@@ -6,10 +6,7 @@ import com.processing.business.repository.ClientRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -36,4 +33,13 @@ public class ClientResource {
         log.error("Get no client by id: {}", id);
         return ResponseEntity.badRequest().body(client);
     }
+
+    @PutMapping("/{id}")
+    ResponseEntity<Client> updateOrderById(@PathVariable("id") Long id, @RequestBody Client client) {
+        clientRepository.save(client);
+        return ResponseEntity.ok(client);
+
+    }
+
+
 }
