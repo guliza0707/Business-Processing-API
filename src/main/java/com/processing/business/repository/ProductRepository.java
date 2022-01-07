@@ -1,4 +1,4 @@
-/*package com.processing.business.repository;
+package com.processing.business.repository;
 
 import com.processing.business.model.Order;
 import com.processing.business.model.Product;
@@ -7,4 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
-}*/
+}

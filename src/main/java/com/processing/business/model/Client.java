@@ -1,6 +1,7 @@
 package com.processing.business.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.CustomLog;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,8 +24,13 @@ public class Client {
     @Column(name = "first_name", nullable = true, length = 50)
     private String firstName;
 
+    @OneToMany(mappedBy = "client", orphanRemoval = true)
+    @JsonIgnore
+    private Collection<Order> orders;
+
     @Basic
     @Column(name = "last_name", nullable = true, length = 50)
+
     private String lastName;
 
     @Basic
